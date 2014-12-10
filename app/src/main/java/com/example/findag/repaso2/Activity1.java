@@ -4,14 +4,36 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class Activity1 extends ActionBarActivity {
+
+    EditText edtNombre;
+    TextView txvFrase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity1);
+
+        Button btnBoton = (Button) findViewById(R.id.btnBoton);
+
+        btnBoton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                txvFrase = (TextView) findViewById(R.id.txvFrase);
+                edtNombre = (EditText) findViewById(R.id.edtNombre);
+
+                txvFrase.setText(edtNombre.getText().toString() + " buenos dias tenga usted");
+
+            }
+        });
     }
 
 
